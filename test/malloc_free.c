@@ -1,12 +1,12 @@
-/*
- * @File name: malloc_free
- * @Descripttion: malloc与free需成对使用,且free后的指针赋值为NULL,否则变为野指针
- * @version:
- * @Author: XIN
- * @Date: 2021-02-23 14:19:55
- * @LastEditors: XIN
- * @LastEditTime: 2021-02-23 14:36:04
- */
+/*************************************************************************************
+ * Filename     : malloc_free.c
+ * Author       : XIN
+ * Description  : malloc与free需成对使用,且free后的指针赋值为NULL,否则变为野指针
+ * Date         : 2021-03-02 10:49:10
+ * LastEditTime : 2021-03-05 14:49:28
+ * Version      :
+ * History      :
+ *************************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>

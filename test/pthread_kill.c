@@ -1,8 +1,18 @@
+/*************************************************************************************
+ * Filename     : pthread_kill.c
+ * Author       : XIN
+ * Description  : 线程退出的几种方式
+ *                1.return
+ *                2.pthread_exit
+ *                3.其他线程发来pthread_canel信号
+ *                4.该进程中任意线程执行exit()，主线程main中的return相当于exit()
+ * Date         : 2021-03-02 10:49:10
+ * LastEditTime : 2021-03-05 14:47:55
+ * Version      :
+ * History      :
+ *************************************************************************************/
 #include<stdio.h>
-#include<stdlib.h>
 #include<unistd.h>
-#include<fcntl.h>
-#include<sys/types.h>
 #include<pthread.h>
 
 void* func1(void* arg)
@@ -13,7 +23,7 @@ void* func1(void* arg)
 
 void* func2(void* arg)
 {
-    printf("thread 2 exit\n");
+    printf("thread 2 pthread_exit\n");
     pthread_exit((void*)222);
 }
 
@@ -21,10 +31,9 @@ void* func3(void* arg)
 {
     while(1)//如果没有取消点（此函数中有系统调用），线程不会被取消，永远循环
     {
-        printf("thread:I will be killed in 3 seconds\n");
+        printf("thread: Press any key to end me \n");
         sleep(1);
         pthread_testcancel();//自己设置取消点
-        printf("cancel test\n");
     }
     return (void*)666;
 }
